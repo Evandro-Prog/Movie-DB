@@ -1,5 +1,5 @@
 import { Container } from './styles'
-import { getImages } from '../../utils/get-images'
+import { getImages } from '../../utils/getImages'
 
 function Card({ item }) {
     return (

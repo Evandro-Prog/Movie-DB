@@ -27,6 +27,7 @@ export const Container = styled.div`
     max-width: 1500px;
     height: 100%;
     position: relative;
+    margin-top: 100px;
 
     @media (max-width: 900px) {
         flex-direction: column-reverse;
@@ -60,7 +61,7 @@ export const Poster = styled.div`
     z-index: 2;
 
     img {
-        width: 400px;
+        width: 350px;
         border-radius: 30px;
     }
 `
