@@ -21,26 +21,27 @@ function Home() {
     const [popularSeries, setPopularSeries] = useState()
     const [popularActors, setPopularActors] = useState()
     const navigate = useNavigate()
-    // O useState é um hook do React que permite adicionar o estado a um componente funcional. Ele é chamado sempre que o componente é renderizado, ou seja, sempre que o estado do componente muda.
-    // Sempre que quermos mostrar algo na tela usamos o useState, que é um hook do React que permite adicionar o estado a um componente funcional.
-    // O useState é uma função que retorna um array com dois elementos: o estado atual e uma função para atualizá-lo.
-
+    
 
     useEffect(() => {
-        // O useEffect é um hook do React que permite executar efeitos colaterais em componentes funcionais. Ele é chamado após a renderização do componente e pode ser usado para fazer chamadas de API, manipular o DOM, entre outros.
-        // O useEffect é chamado sempre que o componente é renderizado, ou seja, sempre que o estado do componente muda.
-        // O primeiro parâmetro é uma função que será executada após a renderização do componente. 
-        // O segundo parâmetro é um array de dependências que indica quando o efeito deve ser executado novamente. Se o array estiver vazio, o efeito será executado apenas uma vez, após a primeira renderização do componente.
-
+       
 
         async function getAllData() {
-
-            setMovies(await getMovies())
-            setTopMovies(await getTopMovies())
-            setTopSeries(await getTopSeries())
-            setPopularSeries(await getPopularSeries())
-            setPopularActors(await getPopularActors())
-
+            
+           Promise.all([
+                getMovies(),
+                getTopMovies(),
+                getTopSeries(),
+                getPopularSeries(),
+                getPopularActors()
+            ]).then(([movies, topMovies, topSeries, popularSeries, popularActors]) => {
+                setMovies(movies)
+                setTopMovies(topMovies)
+                setTopSeries(topSeries)
+                setPopularSeries(popularSeries)
+                setPopularActors(popularActors)
+            }).catch((error) => console.error(error))
+            
         }
 
         getAllData()
@@ -79,7 +80,3 @@ function Home() {
 
 export default Home
 
-//Eslint e Pretier servem para formatar o código e deixar mais legível,
-//o Eslint verifica se o código está correto e o Prettier formata o código de acordo com as regras definidas no arquivo .eslintrc.js e .prettierrc.js respectivamente.
-//O Prettier é um formatador de código que pode ser usado com várias linguagens de programação, incluindo JavaScript, TypeScript, HTML, CSS e JSON.
-// O Eslint é uma ferramenta de linting para JavaScript que ajuda a encontrar e corrigir problemas no código. Ambos são ferramentas muito úteis para manter o código limpo e legível.

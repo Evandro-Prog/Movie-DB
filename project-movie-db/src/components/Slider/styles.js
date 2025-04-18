@@ -11,6 +11,7 @@ export const Container = styled.div`
     }
 
     .swiper-wrapper {
-        display: flex;     
+        display: flex;    
+        gap: 10px; 
     }
 `
