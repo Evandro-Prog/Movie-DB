@@ -19,6 +19,14 @@ export async function getTopMovies() {
     return results
 }
 
+export async function getSeries() {
+    const { data: { results }
+    } = await api.get('/tv/top_rated')
+
+    return results[2]
+}
+
+
 // Busca Séries
 export async function getTopSeries() {
 
