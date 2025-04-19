@@ -7,11 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-<<<<<<< HEAD
     "preview": "vite preview",
-=======
-    "preview": "vite preview"
->>>>>>> 6baa9e026ae2e9c6412ecec579eea1b181908936
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
