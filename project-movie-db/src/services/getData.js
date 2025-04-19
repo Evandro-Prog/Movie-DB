@@ -54,6 +54,18 @@ export async function getPopularActors() {
     return results
 }
 
+export async function getUpcomingMovies() {
+    const { data: { results } } = await api.get('/movie/upcoming')
+
+    return results
+}
+
+export async function getNowPlayingMovies() {
+    const { data: { results } } = await api.get('/movie/now_playing')
+
+    return results
+}
+
 // Busca Filme ou Série pelo ID
 export async function getMovieVideos(movieId) {
     const { data: { results } } =
@@ -88,14 +100,4 @@ export async function getAllMovieVideos(movieId) {
     return results
 }
 
-export async function getUpcomingMovies() {
-    const { data: { results } } = await api.get('/movie/upcoming')
 
-    return results
-}
-
-export async function getNowPlayingMovies() {
-    const { data: { results } } = await api.get('/movie/now_playing')
-
-    return results
-}
